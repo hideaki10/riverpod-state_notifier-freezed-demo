@@ -9,12 +9,13 @@ import 'package:shopping_list/infrastructure/item/item_repository.dart';
 class ItemStateNotifier extends StateNotifier<ItemState> {
   final ItemRepository _itemRepository;
 
-  ItemStateNotifier(this._itemRepository) : super(ItemState(items: [])) {
+  // ignore: sort_constructors_first
+  ItemStateNotifier(this._itemRepository) : super(const ItemState(items: [])) {
     _getItem('xdadaddd');
   }
 
-  void add(String name, String id) {
-    _itemRepository.addItem(
+  Future<void> add(String name, String id) async {
+    await _itemRepository.addItem(
         Item(itemId: ItemId(id: id), name: ItemName(name: name)),
         UserId(id: id));
   }

@@ -30,9 +30,10 @@ class AddDialog extends StatelessWidget {
                     final itemState = watch(itemStateProvider);
                     return TextButton(
                       onPressed: controllState.isEnable
-                          ? () {
-                              itemState.add(itemController.text, "x01");
+                          ? () async {
+                              await itemState.add(itemController.text, "x01");
                               itemController.clear();
+                              Navigator.of(context).pop(true);
                             }
                           : null,
                       child: const Text('追加'),

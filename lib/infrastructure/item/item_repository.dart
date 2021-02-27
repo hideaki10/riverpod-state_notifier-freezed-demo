@@ -38,7 +38,7 @@ class ItemRepository implements ItemRepositoryBase {
     await firebaseFirestore.collection(userId.id).doc(item.itemId.id).set(
       <String, dynamic>{
         'id': item.itemId.id,
-        'name': item.name,
+        'name': item.name.name,
         'date': Timestamp.now(),
       },
     );

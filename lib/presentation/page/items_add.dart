@@ -44,9 +44,14 @@ class ItemAdd extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {
-          print('add');
-          AddDialog();
+        onPressed: () async {
+          return showDialog(
+            context: context,
+            child: AlertDialog(
+              title: const Text('名前'),
+              content: AddDialog(),
+            ),
+          );
         },
       ),
     );
