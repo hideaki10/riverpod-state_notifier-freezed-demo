@@ -1,0 +1,7 @@
+include: package:pedantic_mono/analysis_options.yaml
+
+
+analyzer:
+  errors:
+    missing_required_param: warning
+    missing_return: warning

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "916899905886",
+    "project_id": "flutter-shopping-list-ap-e8944",
+    "storage_bucket": "flutter-shopping-list-ap-e8944.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916899905886:android:ab3668b03ec6bafb608fcf",
+        "android_client_info": {
+          "package_name": "com.app.shopping_list"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916899905886-4ge6o857gbd7nlu4e9k5becpk02rvdhh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmWLzKXiVInWk0iUf8ZhzKAzQwjlk4Dw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916899905886-4ge6o857gbd7nlu4e9k5becpk02rvdhh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
