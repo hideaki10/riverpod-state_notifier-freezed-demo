@@ -28,7 +28,7 @@ class ItemList extends StatelessWidget {
                 height: 120,
                 clipBehavior: Clip.none,
                 child: Card(
-                  child: Text(itemState.items[index].name.name),
+                  child: Text(itemState.items[index].itemName.name),
                 ),
               );
             },

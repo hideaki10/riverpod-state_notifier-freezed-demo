@@ -11,30 +11,29 @@ class ItemStateNotifier extends StateNotifier<ItemState> {
 
   // ignore: sort_constructors_first
   ItemStateNotifier(this._itemRepository) : super(const ItemState(items: [])) {
-    _getItem('xdadaddd');
+    _getItem('x01');
   }
 
   Future<void> add(String name, String id) async {
     await _itemRepository.addItem(
-        Item(itemId: ItemId(id: id), name: ItemName(name: name)),
+        Item(itemId: ItemId(id: id), itemName: ItemName(name: name)),
         UserId(id: id));
   }
 
   void remove(String name, String id) {
     _itemRepository.removeItem(
-        Item(itemId: ItemId(id: id), name: ItemName(name: name)),
+        Item(itemId: ItemId(id: id), itemName: ItemName(name: name)),
         UserId(id: id));
   }
 
   void modify(String name, String id) {
     _itemRepository.modifyItem(
-        Item(itemId: ItemId(id: id), name: ItemName(name: name)),
+        Item(itemId: ItemId(id: id), itemName: ItemName(name: name)),
         UserId(id: id));
   }
 
   Future<void> _getItem(String id) async {
     final itemdata = await _itemRepository.getItem(UserId(id: id));
-
     state = state.copyWith(
       items: itemdata,
     );

@@ -15,7 +15,7 @@ class ItemRepository implements ItemRepositoryBase {
     final items = documentData.docs.map((QueryDocumentSnapshot item) {
       return Item(
         itemId: ItemId(id: item.data()['id'].toString()),
-        name: ItemName(name: item.data()['name'].toString()),
+        itemName: ItemName(name: item.data()['name'].toString()),
       );
     }).toList();
 
@@ -27,7 +27,7 @@ class ItemRepository implements ItemRepositoryBase {
     await firebaseFirestore.collection(userId.id).doc(item.itemId.id).update(
       <String, dynamic>{
         'id': item.itemId.id,
-        'name': item.name,
+        'name': item.itemName,
         'date': Timestamp.now(),
       },
     );
@@ -38,7 +38,7 @@ class ItemRepository implements ItemRepositoryBase {
     await firebaseFirestore.collection(userId.id).doc(item.itemId.id).set(
       <String, dynamic>{
         'id': item.itemId.id,
-        'name': item.name.name,
+        'name': item.itemName.name,
         'date': Timestamp.now(),
       },
     );
