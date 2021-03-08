@@ -1,11 +1,9 @@
-// ignore: one_member_abstracts
-import 'package:shopping_list/domain/user/value/user_id.dart';
-
-import 'item.dart';
+import 'package:shopping_list/domain/item/item.dart';
+import 'package:shopping_list/domain/item/value/item_id.dart';
 
 abstract class ItemRepositoryBase {
-  Future<List<Item>> getItem(UserId userId);
-  Future<void> modifyItem(Item item, UserId userId);
-  Future<void> removeItem(Item item, UserId userId);
-  Future<void> addItem(Item item, UserId userId);
+  Future<List<Item>> getItem();
+  Future<void> save(Item item);
+  Future<void> remove(ItemId itemId);
+  Future<List<int>> getItemNumber();
 }

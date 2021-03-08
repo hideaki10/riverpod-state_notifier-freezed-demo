@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shopping_list/presentation/state/enable_state.dart';
+import 'package:shopping_list/application/ui/state/item_add_enable_state.dart';
 
-class EnableStateController extends StateNotifier<EnableState> {
+class ItemAddEnableStateController extends StateNotifier<ItemAddEnableState> {
   // ignore: lines_longer_than_80_chars
-  EnableStateController(this.textEditingController)
-      : super(const EnableState()) {
+  ItemAddEnableStateController(this.textEditingController)
+      : super(const ItemAddEnableState()) {
     toListenController(this.textEditingController);
   }
 

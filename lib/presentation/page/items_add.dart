@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/presentation/page/items_list.dart';
+
 import 'package:shopping_list/presentation/widget/add_dialog.dart';
 
 final TextEditingController mailController = TextEditingController();
 
 class ItemAdd extends StatelessWidget {
+  final String itemTitile;
+
+  // ignore: sort_constructors_first
+  const ItemAdd({Key key, this.itemTitile}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +51,6 @@ class ItemAdd extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          print('add');
           AddDialog();
         },
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shopping_list/presentation/widget/input_dialog.dart';
 import 'package:shopping_list/utils/provider/item/item_provider.dart';
+import 'package:shopping_list/presentation/widget/input_dialog.dart';
 
 class ItemList extends StatelessWidget {
   @override
@@ -19,22 +19,27 @@ class ItemList extends StatelessWidget {
         leading: Text('s'),
       ),
       body: Consumer(builder: (context, watch, child) {
-        final itemState = watch(itemStateProvider.state);
-        return Container(
-          child: ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                height: 120,
-                clipBehavior: Clip.none,
-                child: Card(
-                  child: Text(itemState.items[index].name.name),
+        final itemState = watch(itemNotifierProvider.state);
+        return itemState.when(
+            init: () => Container(
+                  child: ListView.builder(
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                          height: 120,
+                          clipBehavior: Clip.none,
+                          child: Card(
+                              // child: Text(itemState.items[index].name.name),
+                              ),
+                        );
+                      },
+                      itemCount: 2),
                 ),
-              );
-            },
-            itemCount: itemState.items.length,
-          ),
-        );
+            loading: () => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+            getData: (items) => const Text('Dd'),
+            error: (message) => Text(message));
       }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(

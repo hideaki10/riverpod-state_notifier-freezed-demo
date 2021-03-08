@@ -14,10 +14,18 @@ class _$ItemTearOff {
   const _$ItemTearOff();
 
 // ignore: unused_element
-  _Item call({@required ItemId itemId, @required ItemName name}) {
+  _Item call(
+      {@required ItemId itemId,
+      @required ItemBody itemBody,
+      @required ItemNumber itemNumber,
+      @required ItemDate itemDate,
+      @required ItemTitle itemTitle}) {
     return _Item(
       itemId: itemId,
-      name: name,
+      itemBody: itemBody,
+      itemNumber: itemNumber,
+      itemDate: itemDate,
+      itemTitle: itemTitle,
     );
   }
 }
@@ -29,7 +37,10 @@ const $Item = _$ItemTearOff();
 /// @nodoc
 mixin _$Item {
   ItemId get itemId;
-  ItemName get name;
+  ItemBody get itemBody;
+  ItemNumber get itemNumber;
+  ItemDate get itemDate;
+  ItemTitle get itemTitle;
 
   @JsonKey(ignore: true)
   $ItemCopyWith<Item> get copyWith;
@@ -39,10 +50,18 @@ mixin _$Item {
 abstract class $ItemCopyWith<$Res> {
   factory $ItemCopyWith(Item value, $Res Function(Item) then) =
       _$ItemCopyWithImpl<$Res>;
-  $Res call({ItemId itemId, ItemName name});
+  $Res call(
+      {ItemId itemId,
+      ItemBody itemBody,
+      ItemNumber itemNumber,
+      ItemDate itemDate,
+      ItemTitle itemTitle});
 
   $ItemIdCopyWith<$Res> get itemId;
-  $ItemNameCopyWith<$Res> get name;
+  $ItemBodyCopyWith<$Res> get itemBody;
+  $ItemNumberCopyWith<$Res> get itemNumber;
+  $ItemDateCopyWith<$Res> get itemDate;
+  $ItemTitleCopyWith<$Res> get itemTitle;
 }
 
 /// @nodoc
@@ -56,11 +75,19 @@ class _$ItemCopyWithImpl<$Res> implements $ItemCopyWith<$Res> {
   @override
   $Res call({
     Object itemId = freezed,
-    Object name = freezed,
+    Object itemBody = freezed,
+    Object itemNumber = freezed,
+    Object itemDate = freezed,
+    Object itemTitle = freezed,
   }) {
     return _then(_value.copyWith(
       itemId: itemId == freezed ? _value.itemId : itemId as ItemId,
-      name: name == freezed ? _value.name : name as ItemName,
+      itemBody: itemBody == freezed ? _value.itemBody : itemBody as ItemBody,
+      itemNumber:
+          itemNumber == freezed ? _value.itemNumber : itemNumber as ItemNumber,
+      itemDate: itemDate == freezed ? _value.itemDate : itemDate as ItemDate,
+      itemTitle:
+          itemTitle == freezed ? _value.itemTitle : itemTitle as ItemTitle,
     ));
   }
 
@@ -75,12 +102,42 @@ class _$ItemCopyWithImpl<$Res> implements $ItemCopyWith<$Res> {
   }
 
   @override
-  $ItemNameCopyWith<$Res> get name {
-    if (_value.name == null) {
+  $ItemBodyCopyWith<$Res> get itemBody {
+    if (_value.itemBody == null) {
       return null;
     }
-    return $ItemNameCopyWith<$Res>(_value.name, (value) {
-      return _then(_value.copyWith(name: value));
+    return $ItemBodyCopyWith<$Res>(_value.itemBody, (value) {
+      return _then(_value.copyWith(itemBody: value));
+    });
+  }
+
+  @override
+  $ItemNumberCopyWith<$Res> get itemNumber {
+    if (_value.itemNumber == null) {
+      return null;
+    }
+    return $ItemNumberCopyWith<$Res>(_value.itemNumber, (value) {
+      return _then(_value.copyWith(itemNumber: value));
+    });
+  }
+
+  @override
+  $ItemDateCopyWith<$Res> get itemDate {
+    if (_value.itemDate == null) {
+      return null;
+    }
+    return $ItemDateCopyWith<$Res>(_value.itemDate, (value) {
+      return _then(_value.copyWith(itemDate: value));
+    });
+  }
+
+  @override
+  $ItemTitleCopyWith<$Res> get itemTitle {
+    if (_value.itemTitle == null) {
+      return null;
+    }
+    return $ItemTitleCopyWith<$Res>(_value.itemTitle, (value) {
+      return _then(_value.copyWith(itemTitle: value));
     });
   }
 }
@@ -90,12 +147,23 @@ abstract class _$ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
   factory _$ItemCopyWith(_Item value, $Res Function(_Item) then) =
       __$ItemCopyWithImpl<$Res>;
   @override
-  $Res call({ItemId itemId, ItemName name});
+  $Res call(
+      {ItemId itemId,
+      ItemBody itemBody,
+      ItemNumber itemNumber,
+      ItemDate itemDate,
+      ItemTitle itemTitle});
 
   @override
   $ItemIdCopyWith<$Res> get itemId;
   @override
-  $ItemNameCopyWith<$Res> get name;
+  $ItemBodyCopyWith<$Res> get itemBody;
+  @override
+  $ItemNumberCopyWith<$Res> get itemNumber;
+  @override
+  $ItemDateCopyWith<$Res> get itemDate;
+  @override
+  $ItemTitleCopyWith<$Res> get itemTitle;
 }
 
 /// @nodoc
@@ -110,29 +178,52 @@ class __$ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object itemId = freezed,
-    Object name = freezed,
+    Object itemBody = freezed,
+    Object itemNumber = freezed,
+    Object itemDate = freezed,
+    Object itemTitle = freezed,
   }) {
     return _then(_Item(
       itemId: itemId == freezed ? _value.itemId : itemId as ItemId,
-      name: name == freezed ? _value.name : name as ItemName,
+      itemBody: itemBody == freezed ? _value.itemBody : itemBody as ItemBody,
+      itemNumber:
+          itemNumber == freezed ? _value.itemNumber : itemNumber as ItemNumber,
+      itemDate: itemDate == freezed ? _value.itemDate : itemDate as ItemDate,
+      itemTitle:
+          itemTitle == freezed ? _value.itemTitle : itemTitle as ItemTitle,
     ));
   }
 }
 
 /// @nodoc
-class _$_Item implements _Item {
-  const _$_Item({@required this.itemId, @required this.name})
+class _$_Item extends _Item {
+  const _$_Item(
+      {@required this.itemId,
+      @required this.itemBody,
+      @required this.itemNumber,
+      @required this.itemDate,
+      @required this.itemTitle})
       : assert(itemId != null),
-        assert(name != null);
+        assert(itemBody != null),
+        assert(itemNumber != null),
+        assert(itemDate != null),
+        assert(itemTitle != null),
+        super._();
 
   @override
   final ItemId itemId;
   @override
-  final ItemName name;
+  final ItemBody itemBody;
+  @override
+  final ItemNumber itemNumber;
+  @override
+  final ItemDate itemDate;
+  @override
+  final ItemTitle itemTitle;
 
   @override
   String toString() {
-    return 'Item(itemId: $itemId, name: $name)';
+    return 'Item(itemId: $itemId, itemBody: $itemBody, itemNumber: $itemNumber, itemDate: $itemDate, itemTitle: $itemTitle)';
   }
 
   @override
@@ -141,15 +232,28 @@ class _$_Item implements _Item {
         (other is _Item &&
             (identical(other.itemId, itemId) ||
                 const DeepCollectionEquality().equals(other.itemId, itemId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+            (identical(other.itemBody, itemBody) ||
+                const DeepCollectionEquality()
+                    .equals(other.itemBody, itemBody)) &&
+            (identical(other.itemNumber, itemNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.itemNumber, itemNumber)) &&
+            (identical(other.itemDate, itemDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.itemDate, itemDate)) &&
+            (identical(other.itemTitle, itemTitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.itemTitle, itemTitle)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(itemId) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(itemBody) ^
+      const DeepCollectionEquality().hash(itemNumber) ^
+      const DeepCollectionEquality().hash(itemDate) ^
+      const DeepCollectionEquality().hash(itemTitle);
 
   @JsonKey(ignore: true)
   @override
@@ -157,14 +261,25 @@ class _$_Item implements _Item {
       __$ItemCopyWithImpl<_Item>(this, _$identity);
 }
 
-abstract class _Item implements Item {
-  const factory _Item({@required ItemId itemId, @required ItemName name}) =
-      _$_Item;
+abstract class _Item extends Item {
+  const _Item._() : super._();
+  const factory _Item(
+      {@required ItemId itemId,
+      @required ItemBody itemBody,
+      @required ItemNumber itemNumber,
+      @required ItemDate itemDate,
+      @required ItemTitle itemTitle}) = _$_Item;
 
   @override
   ItemId get itemId;
   @override
-  ItemName get name;
+  ItemBody get itemBody;
+  @override
+  ItemNumber get itemNumber;
+  @override
+  ItemDate get itemDate;
+  @override
+  ItemTitle get itemTitle;
   @override
   @JsonKey(ignore: true)
   _$ItemCopyWith<_Item> get copyWith;
